@@ -1,18 +1,18 @@
 %define		_modname	gnutls
+%define	_pre	rc1
 Summary:	GnuTLS PHP Module
 Name:		php-%{_modname}
 Version:	0.3
-%define	_pre	rc1
 Release:	0.%{_pre}.1
 License:	GPL
 Group:		Development/Languages/PHP
-Source0:	http://files.openvcp.org/modphp-%{_modname}-%{version}-%{_pre}.tar.gz
+Source0:	http://files.openvcp.org/mod%{name}-%{version}-%{_pre}.tar.gz
 # Source0-md5:	2a52affb9b2a5271558ffc2baaf9aa56
 URL:		http://www.openvcp.org/
 BuildRequires:	autoconf
 BuildRequires:	gnutls-devel
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	rpmbuild(macros) >= 1.394
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,12 +21,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 GnuTLS PHP Module.
 
 %prep
-%setup -q -n modphp-%{_modname}-%{version}-%{_pre}
+%setup -q -n mod%{name}-%{version}-%{_pre}
 
 %build
 %{__autoconf}
 %configure \
-	--with-phpsrc=/usr/include/php
+	--with-phpsrc=%{php_includedir}
 
 %{__make}
 
