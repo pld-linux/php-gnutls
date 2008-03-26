@@ -1,6 +1,7 @@
 %define		_modname	gnutls
 %define	_pre	rc1
 Summary:	GnuTLS PHP Module
+Summary(pl.UTF-8):	Moduł PHP GnuTLS
 Name:		php-%{_modname}
 Version:	0.3
 Release:	0.%{_pre}.1
@@ -19,6 +20,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GnuTLS PHP Module.
+
+%description -l pl.UTF-8
+Moduł PHP GnuTLS.
 
 %prep
 %setup -q -n mod%{name}-%{version}-%{_pre}
